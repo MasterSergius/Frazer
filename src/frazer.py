@@ -52,6 +52,7 @@ class Frazer(mydaemon.Daemon):
     def show_phrase(self, phrase):
         """ Shows phrase via tkinter window """
         path_to_tkinter_message_script = os.path.join(os.environ['PRODROOT'], 'src/show_tkinter_message.py')
+        phrase = "%s" % (phrase.replace('"','\\"'),)
         subprocess.call('python %s "%s"' % (path_to_tkinter_message_script, phrase.encode('utf-8')), shell=True)
 
     def run(self):
